@@ -14,10 +14,17 @@ function hp(percentage) {
 }
 
 export const styles= {
+
     contentView : {
         height: hp(90),
         position: 'absolute',
         top: hp(10),
-        width: wp(100)
+        width: wp(100),
+        alignItems: 'center'
+    },
+    card : {
+        borderRadius: 7,
+        marginTop: 20,
+        width: wp(90),
     }
 }

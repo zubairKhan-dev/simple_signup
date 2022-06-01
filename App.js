@@ -14,8 +14,8 @@ const App = ()=> {
                     <Stack.Navigator screenOptions={{
                         headerShown: false
                     }}>
-                        {/* <Stack.Screen name={"loginScreen"} component={Login} options={{ title: "Login"}}/>
-                        <Stack.Screen name={"VerificationScreen"} component={VerificationScreen} options={{ title: "OTP"}}/> */}
+                        <Stack.Screen name={"loginScreen"} component={Login} options={{ title: "Login"}}/>
+                        <Stack.Screen name={"VerificationScreen"} component={VerificationScreen} options={{ title: "OTP"}}/>
                         <Stack.Screen name={"DetailScreen"} component={DetailScreen} options={{ title: "Details"}}/>
 
                     </Stack.Navigator>

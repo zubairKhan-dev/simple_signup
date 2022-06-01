@@ -91,7 +91,11 @@ const VerificationScreen= (props)=> {
 
     // otp validation
     const validateAndSend = async () => {
-        props.navigation.navigate('DetailScreen')
+        props.navigation.navigate('DetailScreen', {
+            email: props.route.params.email,
+            name: props.route.params.name,
+            phone: props.route.params.phone
+        })
     }
 
     // change state when timer stops

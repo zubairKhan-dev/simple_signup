@@ -8,40 +8,26 @@ import { useEffect, useState } from 'react';
 
 const DetailScreen= (props)=> {
 
-    const user = AsyncStorage.getItem('user')
-
-    const[data, setData] = useState({})
-
-    useEffect(()=> {
-        
-
-        user.then( response => {
-            console.log(response.username);
-            setData(response)
-          });
-
-    }, [])
-
     
 
     return(
         <View>
             <Header />
-            <View style= {styles.DetailScreen}>
+            <View style= {styles.contentView}>
                
                             <Card style={styles.card}>
                                 <Card.Content>
-                                    <Title>{data.username}</Title>
+                                    <Title>{props.route.params.name}</Title>
                                 </Card.Content>    
                             </Card>
                             <Card style={styles.card}>
                                 <Card.Content>
-                                    <Title>{user.email}</Title>
+                                    <Title>{props.route.params.email}</Title>
                                 </Card.Content>    
                             </Card>
                             <Card style={styles.card}>
                                 <Card.Content>
-                                    <Title>{user.phone}</Title>
+                                    <Title>{props.route.params.phone}</Title>
                                 </Card.Content>    
                             </Card>
             </View>
