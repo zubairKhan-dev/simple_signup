@@ -1,3 +1,4 @@
+/* otp-verifivation-screen */
 import React, {useEffect, useRef, useState} from "react";
 import {Dimensions, Image, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, View} from "react-native";
 import styles from "./styles";
@@ -91,11 +92,7 @@ const VerificationScreen= (props)=> {
 
     // otp validation
     const validateAndSend = async () => {
-        props.navigation.navigate('DetailScreen', {
-            email: props.route.params.email,
-            name: props.route.params.name,
-            phone: props.route.params.phone
-        })
+        props.navigation.navigate('DetailScreen')
     }
 
     // change state when timer stops
@@ -128,7 +125,7 @@ const VerificationScreen= (props)=> {
                     <View style={{marginTop: hp(1)}}/>
                     <Text style={[styles.mediumText, {color: theme.Black}]}>A one time password has been sent to</Text>
                     <View style={{marginTop: hp(1)}}/>
-                    <Text style={styles.headingText}>{props.route.params.email}</Text>
+                    <Text style={styles.headingText}>{props.route.params.phone}</Text>
                     <View style={{marginTop: hp(1)}}/>
                     <TouchableOpacity style={{width: '15%'}} onPress={()=> {props.navigation.navigate("loginScreen")}}>
                         <Text style={[styles.smallText, {color: theme.Default_Color,textDecorationLine: 'underline'}]}>CHANGE</Text>

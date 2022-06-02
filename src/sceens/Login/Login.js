@@ -33,26 +33,13 @@ const Login = (props) => {
 
 
     const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const [num, setNum] = useState("")
     const [quizId, setQuizId] = useState("")
     const [isVisible, setIsVisible] = useState(false)
     const [nameVer, setNameVer] = useState(true)
-    const [emailVer, setEmailVer] = useState(true)
+    const [passVer, setPassVer] = useState(true)
     const [phoneVer, setPhoneVer] = useState(true)
-
-    
-
-
-    // setting the quiz uid to the local storage and navigating to error screen if not found
-    useEffect(async () => {
-        if (!AsyncStorage.getItem('user')) AsyncStorage.setItem('user', user_config.user)
-    }, [])
-
-    console.log(AsyncStorage.getItem('user'))
-
-
-
 
 
     // Validating if user input full name or not
@@ -66,13 +53,13 @@ const Login = (props) => {
         }
     }
 
-    // Validating email
-    const emailValidation = (email) => {
-        if (email.match(validators.email)) {
-            setEmailVer(true)
+    // Validating password
+    const passwordValidation = (password) => {
+        if (password.match(validators.password)) {
+            setPassVer(true)
             return true
         } else {
-            setEmailVer(false)
+            setPassVer(false)
             return false
         }
     }
@@ -92,36 +79,35 @@ const Login = (props) => {
     const sendOtp = () => {
         const user = AsyncStorage.getItem('user')
 
-        if (emailValidation(email) && nameValidation(name) && phoneValidation(num)) {
-            user.username= name
-            user.email= email
-            user.phone= num
-            let new_user = user
-            AsyncStorage.setItem('user', JSON.stringify(new_user))
-            console.log(new_user)
+        if (passwordValidation(password) && nameValidation(name) && phoneValidation(num)) {
+            user_config.user.username= name
+            user_config.user.password= password
+            user_config.user.phone= num
+            //AsyncStorage.setItem('user_config', user_config)
             
             props.navigation.navigate("VerificationScreen", {
                                 name: name,
-                                email: email,
                                 phone: num
                             })
 
         } else if (!nameValidation(name)) {
             setNameVer(false)
             
-        } else if (!emailValidation(email)) {
-            setEmailVer(false)
+        } else if (!passwordValidation(password)) {
+            setPassVer(false)
            
         } else if (!phoneValidation(num)) {
             setPhoneVer(false)
          
         }
-        else if (!emailValidation(email) && !nameValidation(name) && !phoneValidation(num)) {
-            setEmailVer(false)
+        else if (!passwordValidation(password) && !nameValidation(name) && !phoneValidation(num)) {
+            setPassVer(false)
             setNameVer(false)
             setPhoneVer(false)
         }
     }
+
+    console.log(user_config)
 
     // rendering UI
     return (
@@ -166,19 +152,20 @@ const Login = (props) => {
                     paddingVertical: 10,
                     fontSize: 12,
                     fontWeight: '600',
-                    color: emailVer ? "black" : theme.errorRed
+                    color: passVer ? "black" : theme.errorRed
                 }}>
-                    {emailVer ? "EMAIL" : "Please enter valid email !!"}
+                    {passVer ? "PASSWORD" : "Please enter valid password !!"}
                 </Text>
                 <LoginInput
-                    placeholder={"johndoe@gmail.com"}
-                    backgroundColor={emailVer ? null : theme.Snow}
-                    borderColor={emailVer ? theme.Default_Color : theme.errorRed}
+                    placeholder={"******"}
+                    backgroundColor={passVer ? null : theme.Snow}
+                    borderColor={passVer ? theme.Default_Color : theme.errorRed}
                     onChangeText={(val) => {
-                        setEmailVer(true)
-                        setEmail(val)
+                        setPassVer(true)
+                        setPassword(val)
                     }}
-                    value={email}
+                    value={password}
+                    secureTextEntry= {true}
                 />
                 <View style={{height: hp(2.5)}}/>
                 <Text style={{

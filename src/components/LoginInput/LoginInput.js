@@ -24,6 +24,7 @@ const LoginInput= (props)=> {
                 style={[styles.loginInput, {borderColor: props.borderColor, backgroundColor: props.backgroundColor}]}
                 value={props.value}
                 keyboardType={props.keyboardType}
+                secureTextEntry={props.secureTextEntry}
             />
         </View>
     )

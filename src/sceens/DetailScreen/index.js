@@ -5,8 +5,11 @@ import {Card, Title, Paragraph } from 'react-native-paper';
 import { styles } from './styles'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from 'react';
+import user_config from '../../data/user_config';
 
 const DetailScreen= (props)=> {
+
+    console.log(user_config.user.username)
 
     
 
@@ -14,20 +17,13 @@ const DetailScreen= (props)=> {
         <View>
             <Header />
             <View style= {styles.contentView}>
-               
+
                             <Card style={styles.card}>
                                 <Card.Content>
-                                    <Title>{props.route.params.name}</Title>
-                                </Card.Content>    
-                            </Card>
-                            <Card style={styles.card}>
-                                <Card.Content>
-                                    <Title>{props.route.params.email}</Title>
-                                </Card.Content>    
-                            </Card>
-                            <Card style={styles.card}>
-                                <Card.Content>
-                                    <Title>{props.route.params.phone}</Title>
+                                    <Title>{'User Detail'}</Title>
+                                    <Paragraph>{user_config.user.username}</Paragraph>
+                                    <Paragraph>{user_config.user.password}</Paragraph>
+                                    <Paragraph>{user_config.user.phone}</Paragraph> 
                                 </Card.Content>    
                             </Card>
             </View>
