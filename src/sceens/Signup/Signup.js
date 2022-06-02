@@ -29,7 +29,7 @@ function hp(percentage) {
     return Math.round(value);
 }
 
-const Login = (props) => {
+const Signup = (props) => {
 
 
     const [name, setName] = useState("")
@@ -198,4 +198,4 @@ const Login = (props) => {
 
 }
 
-export default Login
+export default Signup

@@ -127,7 +127,7 @@ const VerificationScreen= (props)=> {
                     <View style={{marginTop: hp(1)}}/>
                     <Text style={styles.headingText}>{props.route.params.phone}</Text>
                     <View style={{marginTop: hp(1)}}/>
-                    <TouchableOpacity style={{width: '15%'}} onPress={()=> {props.navigation.navigate("loginScreen")}}>
+                    <TouchableOpacity style={{width: '15%'}} onPress={()=> {props.navigation.navigate("signupScreen")}}>
                         <Text style={[styles.smallText, {color: theme.Default_Color,textDecorationLine: 'underline'}]}>CHANGE</Text>
                     </TouchableOpacity>
                 </View>
