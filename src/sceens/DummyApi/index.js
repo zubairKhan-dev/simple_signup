@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, Button} from 'react-native'
 import {Card, Title, Paragraph } from 'react-native-paper';
 import Header from '../../components/Header/Header';
+import theme from '../../util/theme'
 
 const DummyApi= (props)=> {
 
@@ -24,14 +25,14 @@ const DummyApi= (props)=> {
     }, [])
 
     return(
-        <View style={{flex: 1, justifyContent: 'center', alignContent: 'center'}}>
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
             <Header title={'DummyApi'}/>
             <Card>
                                 <Card.Content>
                                     <Title>{'Fact - '}{fact}</Title>
                                     <Title>{'Length - '}{length}</Title>
                                 </Card.Content>    
-                            </Card>
+            </Card>
         </View>
     )
 }

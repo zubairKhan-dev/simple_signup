@@ -15,8 +15,8 @@ const App = ()=> {
                     <Stack.Navigator screenOptions={{
                         headerShown: false
                     }}>
-                        {/* <Stack.Screen name={"signupScreen"} component={Signup} options={{ title: "Login"}}/>
-                        <Stack.Screen name={"VerificationScreen"} component={VerificationScreen} options={{ title: "OTP"}}/>*/}
+                        <Stack.Screen name={"signupScreen"} component={Signup} options={{ title: "Login"}}/>
+                        <Stack.Screen name={"VerificationScreen"} component={VerificationScreen} options={{ title: "OTP"}}/>
                         <Stack.Screen name={"DetailScreen"} component={DetailScreen} options={{ title: "Details"}}/> 
                         <Stack.Screen name={"DummyApiScreen"} component={DummyApi} options={{ title: "DummyApi"}}/>
 
