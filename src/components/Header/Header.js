@@ -19,7 +19,7 @@ const Header= (props)=> {
     return(
         <View style={styles.container}>
             <View style={{position: 'absolute', left: wp(5)}}>
-                
+                <Text style={styles.title}>{props.title}</Text>
             </View>
             {props.timer ?
                 <View style={{position: 'absolute', right: wp(10)}}>
@@ -69,5 +69,9 @@ const styles= StyleSheet.create({
         position: 'absolute',
         top: 0,
         width: '100%'
+    },
+    title : {
+        fontSize: 24,
+        fontWeight: 'bold'
     }
 })
